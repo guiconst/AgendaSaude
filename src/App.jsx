@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from './supabase'
 import Auth from './Auth'
+import NovaSenha from './NovaSenha'
 import Termo, { VERSAO_TERMO } from './Termo'
 import Shell from './Shell'
 
@@ -8,10 +9,14 @@ export default function App() {
   const [session, setSession] = useState(undefined)
   const [aceito, setAceito] = useState(null)
   const [aviso, setAviso] = useState('')
+  const [recuperando, setRecuperando] = useState(false)
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session))
-    const { data } = supabase.auth.onAuthStateChange((_e, s) => setSession(s))
+    const { data } = supabase.auth.onAuthStateChange((evento, s) => {
+      if (evento === 'PASSWORD_RECOVERY') setRecuperando(true)
+      setSession(s)
+    })
     return () => data.subscription.unsubscribe()
   }, [])
 
@@ -28,6 +33,7 @@ export default function App() {
 
   if (session === undefined || (session && aceito === null)) return <p className="center">Carregando…</p>
   if (!session) return <Auth aviso={aviso} />
+  if (recuperando) return <NovaSenha onConcluir={() => setRecuperando(false)} />
   if (!aceito) return <Termo userId={session.user.id} onAceitar={() => setAceito(true)} onRecusar={recusar} />
   return <Shell user={session.user} />
 }

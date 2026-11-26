@@ -1,0 +1,55 @@
+/* Estilos da Sprint 2: agendamento, histórico e nova senha */
+select, textarea { font: inherit; }
+select:focus-visible, textarea:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+.campo select, .campo textarea { display: block; width: 100%; margin-top: 6px; padding: 14px; border: 1px solid #d5dce8; border-radius: 12px; background: #fff; color: var(--navy); }
+.campo textarea { resize: vertical; }
+
+.voltar { display: flex; align-items: center; gap: 2px; background: none; border: 0; padding: 0; margin-bottom: 8px; color: var(--azul); font-weight: 700; cursor: pointer; }
+
+/* Cartão de atendimento */
+.atend { display: grid; gap: 6px; background: #fff; border: 1px solid #e6ebf3; border-radius: 18px; padding: 16px; margin-bottom: 12px; }
+.atend-linha { display: flex; gap: 6px; align-items: flex-start; color: var(--cinza); font-size: 15px; }
+.atend-linha svg { flex-shrink: 0; margin-top: 2px; }
+
+.mini { justify-self: start; margin-top: 6px; padding: 8px 12px; border: 1px solid #d5dce8; border-radius: 10px; background: #fff; color: var(--navy); font-weight: 700; cursor: pointer; }
+.mini.perigo { color: var(--erro); border-color: #f3c4ba; }
+.confirma-cancel { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 6px; }
+.confirma-cancel .mini { margin-top: 0; }
+
+/* Escolha de especialidade, dia e horário */
+.opcoes { display: grid; gap: 10px; margin-top: 12px; }
+.opcao { text-align: left; padding: 16px; border: 1px solid #e6ebf3; border-radius: 14px; background: #fff; color: var(--navy); font-weight: 500; cursor: pointer; }
+.opcao:hover { background: var(--azul-claro); }
+
+.dias { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; }
+.dia { flex: 0 0 auto; min-width: 60px; display: grid; justify-items: center; padding: 8px 10px; border: 1px solid #d5dce8; border-radius: 14px; background: #fff; color: var(--navy); cursor: pointer; }
+.dia small { color: inherit; text-transform: capitalize; }
+.dia strong { font-size: 20px; }
+.dia.ativo { background: var(--azul); border-color: var(--azul); color: #fff; }
+
+.unidade { display: grid; gap: 2px; background: #fff; border: 1px solid #e6ebf3; border-radius: 14px; padding: 14px; margin-bottom: 12px; }
+.horas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.hora { padding: 10px 14px; border: 1px solid var(--azul); border-radius: 10px; background: #fff; color: var(--azul); font-weight: 700; cursor: pointer; }
+.hora:hover { background: var(--azul-claro); }
+
+.sucesso { text-align: center; color: var(--verde); padding: 24px 0; }
+.sucesso h1 { color: var(--navy); }
+.sucesso p { color: var(--cinza); line-height: 1.6; }
+
+/* Histórico */
+.form-registro { background: #fff; border: 1px solid #e6ebf3; border-radius: 18px; padding: 16px; margin: 12px 0; }
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 4px; }
+.chip { padding: 8px 14px; border: 1px solid #d5dce8; border-radius: 999px; background: #fff; color: var(--navy); font-weight: 500; cursor: pointer; }
+.chip.ativo { background: var(--azul); border-color: var(--azul); color: #fff; }
+.titulo.mes { text-transform: capitalize; }
+
+.registro { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid #e6ebf3; border-radius: 14px; padding: 12px; margin-bottom: 8px; }
+.registro.cancelado { opacity: .65; }
+.registro-texto { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.registro-icone { display: grid; place-items: center; width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; background: var(--azul-claro); color: var(--azul); }
+.registro-icone.exame { background: var(--verde-claro); color: var(--verde); }
+.registro-icone.vacina { background: #fdf1e3; color: #a15c07; }
+.registro-icone.outro { background: #eef0f4; color: var(--cinza); }
+.selo { font-size: 12px; font-weight: 500; color: var(--erro); }
+.icone-btn { background: none; border: 0; padding: 8px; border-radius: 8px; color: var(--cinza); cursor: pointer; }
+.icone-btn:hover { color: var(--erro); }
