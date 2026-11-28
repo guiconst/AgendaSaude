@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { supabase } from './supabase'
+import Logo from './Logo'
 
 export default function NovaSenha({ onConcluir }) {
   const [senha, setSenha] = useState('')
@@ -21,7 +22,7 @@ export default function NovaSenha({ onConcluir }) {
 
   return (
     <main className="tela auth">
-      <p className="eyebrow">AgendaSaúde</p>
+      <Logo />
       <h1>Criar nova senha</h1>
       <p className="sub">Escolha uma senha nova para a sua conta.</p>
       <form onSubmit={enviar}>

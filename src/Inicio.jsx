@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Stethoscope, ClipboardCheck, ChevronRight } from 'lucide-react'
 import { buscarAgendamentos, futuros } from './agendamentos'
 import CartaoAtendimento from './CartaoAtendimento'
+import Logo from './Logo'
 
 export default function Inicio({ nome, irPara }) {
   const [proximo, setProximo] = useState(undefined)
@@ -12,7 +13,7 @@ export default function Inicio({ nome, irPara }) {
 
   return (
     <>
-      <p className="eyebrow">AgendaSaúde</p>
+      <Logo tamanho="pequena" />
       <h1>Olá, {nome.split(' ')[0]}</h1>
       <p className="sub">Como você está se sentindo hoje?</p>
       <section className="hero">

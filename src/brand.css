@@ -1,0 +1,34 @@
+/* Identidade visual: paleta da logo (teal + verde) */
+:root {
+  --bg: #f4f8f7;
+  --azul: #00796b;          /* teal da marca, escurecido p/ contraste com texto branco */
+  --azul-claro: #e0f2f0;
+  --navy: #0c2f36;
+  --verde: #2f7d12;         /* verde da marca, escurecido p/ contraste */
+  --verde-claro: #eaf5e1;
+  --cinza: #5f7478;
+}
+
+/* Logo */
+.logo-h { display: block; height: auto; max-width: 100%; }
+.logo-h.grande { width: 250px; margin: 8px auto 18px; }
+.logo-h.pequena { width: 150px; margin: 0 0 14px; }
+
+/* Telas de entrada (login, cadastro, recuperar, nova senha) */
+.auth { text-align: center; }
+.auth form { text-align: left; }
+.auth .sub { margin-bottom: 24px; }
+
+/* Carregamento */
+.carregando { display: grid; justify-items: center; gap: 12px; margin-top: 34vh; color: var(--cinza); }
+.carregando img { width: 84px; height: auto; animation: pulsar 1.6s ease-in-out infinite; }
+@keyframes pulsar { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(.92); opacity: .75; } }
+@media (prefers-reduced-motion: reduce) { .carregando img { animation: none; } }
+
+/* Destaque da tela Início */
+.hero { background: linear-gradient(135deg, #00796b 0%, #009688 100%); }
+.btn.verde { background: var(--verde); }
+.nav button.ativa { color: var(--azul); }
+
+/* Botão de destaque no hero: verde-limão da logo com texto escuro (contraste alto) */
+.hero .btn.verde { background: #8fd23c; color: var(--navy); }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ShieldCheck } from 'lucide-react'
 import { supabase } from './supabase'
+import Logo from './Logo'
 
 export const VERSAO_TERMO = '1.0'
 
@@ -16,6 +17,7 @@ export default function Termo({ userId, onAceitar, onRecusar }) {
 
   return (
     <main className="tela">
+      <Logo tamanho="pequena" />
       <p className="eyebrow">Seus dados, sua escolha</p>
       <h1>Termo de consentimento</h1>
       <div className="aviso-verde"><ShieldCheck size={18} /> Dados de saúde são sensíveis pela LGPD.</div>

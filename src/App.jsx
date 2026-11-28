@@ -4,6 +4,7 @@ import Auth from './Auth'
 import NovaSenha from './NovaSenha'
 import Termo, { VERSAO_TERMO } from './Termo'
 import Shell from './Shell'
+import { Carregando } from './Logo'
 
 export default function App() {
   const [session, setSession] = useState(undefined)
@@ -31,7 +32,7 @@ export default function App() {
     await supabase.auth.signOut()
   }
 
-  if (session === undefined || (session && aceito === null)) return <p className="center">Carregando…</p>
+  if (session === undefined || (session && aceito === null)) return <Carregando />
   if (!session) return <Auth aviso={aviso} />
   if (recuperando) return <NovaSenha onConcluir={() => setRecuperando(false)} />
   if (!aceito) return <Termo userId={session.user.id} onAceitar={() => setAceito(true)} onRecusar={recusar} />

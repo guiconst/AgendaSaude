@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { supabase } from './supabase'
+import Logo from './Logo'
 
 const soDigitos = (v) => v.replace(/\D/g, '')
 const mascaraCpf = (v) =>
@@ -35,7 +36,7 @@ export default function Auth({ aviso }) {
         const { error } = await supabase.auth.signInWithPassword({ email: f.email, password: f.senha })
         if (error) setErro('E-mail ou senha incorretos.')
       } else if (modo === 'recuperar') {
-        await supabase.auth.resetPasswordForEmail(f.email)
+        await supabase.auth.resetPasswordForEmail(f.email, { redirectTo: window.location.origin })
         setInfo('Se houver uma conta com esse e-mail, enviamos o link para criar uma nova senha.')
       } else {
         if (!cpfValido(f.cpf)) return setErro('CPF inválido. Confira os números.')
@@ -63,7 +64,7 @@ export default function Auth({ aviso }) {
 
   return (
     <main className="tela auth">
-      <p className="eyebrow">AgendaSaúde</p>
+      <Logo />
       <h1>{modo === 'login' ? 'Entrar' : modo === 'cadastro' ? 'Criar conta' : 'Recuperar senha'}</h1>
       <p className="sub">
         {modo === 'login' && 'Acesse seus atendimentos com segurança.'}
